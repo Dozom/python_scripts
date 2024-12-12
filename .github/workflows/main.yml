@@ -1,0 +1,26 @@
+name: Create txt
+on:
+  push:
+    branches: [ main ]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+  
+    steps:
+    - name: checkout repo 
+      uses: actions/checkout@v4
+    - name: Setup Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
+    - name: Run script
+      run: python ./generatetext.py
+    - name: Commit and push changes
+      uses: stefanzweifel/git-auto-commit-action@v5    
+      with:
+        commit-message: Update file
+        commit_user_name: Dozom [Github Actions]
+        commit_user_email: danielnagercarpios@gmail.com
+        commit_author: dozom
