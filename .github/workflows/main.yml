@@ -16,7 +16,7 @@ jobs:
       with:
         python-version: '3.11'
     - name: Run script
-      run: python ./generatetext.py
+      run: python ./generatetxt.py
     - name: Commit and push changes
       uses: stefanzweifel/git-auto-commit-action@v5    
       with:
